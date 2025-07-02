@@ -54,7 +54,7 @@
 					<div class="modal-container">
 					<h1>Delete User</h1>
 					<p>Are you sure you want to remove this user?</p>
-					<input name="id" id="modal_user_id" value="">
+					<input type="hidden" name="id" id="modal_user_id" value="">
 					<div class="clearfix">
 						<button type="button" class="btn cancelbtn" onclick="document.getElementById('delete_modal').style.display='none'">Cancel</button>
 						<button type="submit" class="btn deletebtn" onclick="window.location.href='delete_user.php'">Delete</button>

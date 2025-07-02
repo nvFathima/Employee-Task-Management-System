@@ -7,11 +7,11 @@ if (isset($_SESSION['role']) && isset($_SESSION['id'])) {
 
     $notifications = get_all_my_notifications($conn, $_SESSION['id']);
     if ($notifications == 0) { ?>
-        <li>
+        <!-- <li>
         <a href="#">
             You have zero notification
         </a>
-        </li>
+        </li> -->
        
     <?php }else{
     foreach ($notifications as $notification) {
