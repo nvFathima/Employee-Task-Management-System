@@ -49,6 +49,7 @@
 }
 .body {
 	display: flex;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .side-bar ul {
@@ -168,6 +169,65 @@
 .delete-btn:hover{
 	opacity: .6;
 }
+.cancelbtn, .deletebtn {
+	padding: 10px 15px;
+	font-size: 17px;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+	transition: background 1s;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	float: left;
+	width: 50%;
+}
+.cancelbtn {
+  background-color: #8B8589;
+}
+.deletebtn {
+  background-color: #f44336;
+}
+.cancelbtn:hover, .deletebtn:hover{
+	opacity: 0.4;
+}
+.modal-container {
+  padding: 16px;
+  text-align: center;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: transparent;
+  padding-top: 50px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+.close:hover, .close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .edit-btn{
 	text-decoration: none;
 	display: inline-block;
@@ -228,4 +288,51 @@
 	color: #009D22;
 	padding: 10px;
 	margin-bottom: 10px;
+}
+.password-section {
+	border: 1px solid #ddd;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+}
+.password-toggle {
+	margin-bottom: 10px;
+}
+.password-fields {
+	display: none;
+	margin-top: 10px;
+}
+.password-fields.show {
+	display: block;
+}
+.current-password-info {
+	color: #666;
+	font-size: 14px;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+.dashboard {
+	display: flex;
+	max-width: 650px;
+	width: 95%;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.dashboard-item {
+    text-align: center;
+    background: #262931;
+    width: 200px;
+    padding: 30px 5px;
+    margin-bottom: 40px;
+}
+.dashboard-item i{
+	display: block;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.dashboard-item span{
+	display: block;
+    color: #fff;
 }

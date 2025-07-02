@@ -1,0 +1,72 @@
+<?php 
+	session_start();
+	if(isset($_SESSION['role']) && isset($_SESSION['id'])&& $_SESSION['role'] == "admin"){ 
+		include "DB_connection.php";
+		include "app/Model/Users.php";
+		$users = get_all_users($conn);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Tasks</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<input type="checkbox" id="checkbox">
+	<?php include "inc/header.php" ?>
+	<div class="body">
+		<?php include "inc/nav.php" ?>
+		<section class="section-1">
+            <h4 class="title">Create Task</h4>
+			<form class="form-1" method="POST" action="app/add_task.php">
+			    <?php if (isset($_GET['error'])) {?>
+      	  	        <div class="danger" role="alert">
+			        <?php echo stripcslashes($_GET['error']); ?>
+			        </div>
+      	        <?php } ?>
+
+                <?php if (isset($_GET['success'])) {?>
+                    <div class="success" role="alert">
+                    <?php echo stripcslashes($_GET['success']); ?>
+                    </div>
+                <?php } ?>
+				<div class="input-holder">
+					<lable>Title</lable>
+					<input type="text" name="title" class="input-1" placeholder="Title"><br>
+				</div>
+				<div class="input-holder">
+					<lable>Description</lable>
+					<textarea type="text" name="description" class="input-1" placeholder="Description"></textarea><br>
+				</div>
+				<div class="input-holder">
+					<lable>Due Date</lable>
+					<input type="date" name="due_date" class="input-1" placeholder="Due Date"><br>
+				</div>
+				<div class="input-holder">
+					<lable>Assigned to</lable>
+					<select name="assigned_to" class="input-1">
+						<option value="0">Select employee</option>
+						<?php if ($users !=0) { 
+							foreach ($users as $user) {
+						?>
+                  <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
+						<?php } } ?>
+					</select><br>
+				</div>
+				<button class="edit-btn">Create Task</button>
+			</form>
+		</section>
+	</div>
+</body>
+</html>
+
+<?php 
+	}else{
+		$em = "Please Login First";
+        header("Location: login.php?error=$em");
+        exit();
+ 	}
+?>

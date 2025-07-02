@@ -25,7 +25,7 @@
 
 <?php 
 	}else{
-		$em = "First Login";
+		$em = "Please Login First";
         header("Location: login.php?error=$em");
         exit();
  	}

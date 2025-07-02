@@ -1,3 +1,7 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
+
 <nav class="side-bar">
     <div class="user-p">
         <img src="img/user.png">
@@ -43,31 +47,31 @@
     <?php }else{ ?>
     <!--Admin Nav Bar-->
     <ul id="navList">
-        <li>
-            <a href="#">
+        <li class="<?= ($currentPage == 'admin_dashboard.php') ? 'active' : '' ?>">
+            <a href="admin_dashboard.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="active">
+        <li class="<?= ($currentPage == 'users.php') ? 'active' : '' ?>">
             <a href="users.php">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <span>Manage Users</span>
             </a>
         </li>
-        <li>
+        <li class="<?= ($currentPage == 'create_tasks.php') ? 'active' : '' ?>">
             <a href="create_tasks.php">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 <span>Create Task</span>
             </a>
         </li>
-        <li>
+        <li class="<?= ($currentPage == 'tasks.php') ? 'active' : '' ?>">
             <a href="tasks.php">
                 <i class="fa fa-tasks" aria-hidden="true"></i>
                 <span>All Tasks</span>
             </a>
         </li>
-        <li>
+        <li class="<?= ($currentPage == 'notifications.php') ? 'active' : '' ?>">
             <a href="notifications.php">
                 <i class="fa fa-bell" aria-hidden="true"></i>
                 <span>Notifications</span>
@@ -80,5 +84,6 @@
             </a>
         </li>
     </ul>
+
     <?php } ?>
 </nav>

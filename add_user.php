@@ -17,7 +17,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 	<div class="body">
 		<?php include "inc/nav.php" ?>
 		<section class="section-1">
-			<h4 class="title">Add Users <a href="users.php">Users</a></h4>
+			<h4 class="title">Add Users <a href="users.php">All Users</a></h4>
 			<form class="form-1"
 			      method="POST"
 			      action="app/add_user.php">
@@ -50,16 +50,13 @@ if (isset($_SESSION['role']) && isset($_SESSION['id']) && $_SESSION['role'] == "
 			
 		</section>
 	</div>
-
-<script type="text/javascript">
-	var active = document.querySelector("#navList li:nth-child(2)");
-	active.classList.add("active");
-</script>
 </body>
 </html>
-<?php }else{ 
-   $em = "First login";
-   header("Location: login.php?error=$em");
-   exit();
-}
+
+<?php 
+	}else{ 
+	$em = "Please Login First";
+	header("Location: login.php?error=$em");
+	exit();
+	}
  ?>

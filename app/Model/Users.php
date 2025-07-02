@@ -11,10 +11,52 @@
         return $users;
     }
 
+    function get_user_by_id($conn, $id){
+        $sql = "SELECT * FROM users WHERE id =? ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() > 0){
+            $user = $stmt->fetch();
+        }else $user = 0;
+
+        return $user;
+    }
+
     function insert_user($conn, $data){
         $sql = "INSERT INTO users (full_name, username, password, role) VALUES(?,?,?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute($data);
     }
 
+    function update_user($conn, $data){
+        $sql = "UPDATE users SET full_name=?, username=?, password=?, role=? WHERE id=? AND role=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($data);
+    }
+
+    function update_user_without_password($conn, $full_name, $username, $id){
+        $sql = "UPDATE users SET full_name=?, username=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$full_name, $username, $id]);
+    }
+
+    function get_user_by_username($conn, $username){
+        $sql = "SELECT * FROM users WHERE username=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$username]);
+        
+        if($stmt->rowCount() >= 1){
+            $user = $stmt->fetch();
+            return $user;
+        }else {
+            return 0;
+        }
+    }
+
+    function delete_user($conn, $id){
+        $sql = "DELETE from users WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+    }
 ?>
