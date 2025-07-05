@@ -47,10 +47,16 @@
 						<td><?=$task['due_date'] ?></td>
 						<td><?=$task['status'] ?></td>
 						<td >
-							<a href="edit_task.php?id=<?=$task['id']?>" class="edit-btn">Edit</a>
-							<button type="button" class = "delete-btn" onclick="openDeleteModal('<?=$task['id']?>')">
-								Delete
-							</button>
+							<?php if ($task['status'] == "completed"){?>
+								<button type="button" class = "delete-btn" onclick="openDeleteModal('<?=$task['id']?>')">
+									Delete
+								</button>
+							<?php }else{ ?>
+								<a href="edit_task.php?id=<?=$task['id']?>" class="edit-btn">Edit</a>
+								<button type="button" class = "delete-btn" onclick="openDeleteModal('<?=$task['id']?>')">
+									Delete
+								</button>
+							<?php } ?>
 						</td>
 					</tr>
 					<?php } ?>

@@ -47,16 +47,19 @@
                 <?php } ?>
 
 				<div class="input-holder">
-					<label>Title</label>
-					<input type="text" name="title" value="<?=$task['title']?>" class="input-1" placeholder="Enter the title here"><br>
+					<p><span style="font-weight:bold;">Title: </span><?=$task['title']?><p>
 				</div>
 				<div class="input-holder">
-					<label>Description</label>
-                    <textarea name="description" class="input-1" placeholder="Description here"><?=$task['description']?></textarea><br>
+					<label>Description: </label>
+                    <textarea name="description" class="input-1" disabled><?=$task['description']?></textarea><br>
 				</div>
 				<div class="input-holder">
-					<lable>Due Date</lable>
-					<input type="date" name="due_date" value="<?=$task['due_date']?>" class="input-1" placeholder="Due Date"><br>
+					<label>Status: </label>
+					<select name="status" class="input-1">
+						<option value="pending" <?php echo ($task['status'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
+						<option value="in_progress" <?php echo ($task['status'] == 'in_progress') ? 'selected' : ''; ?>>In-Progress</option>
+						<option value="completed" <?php echo ($task['status'] == 'completed') ? 'selected' : ''; ?>>Completed</option>
+					</select><br>
 				</div>
                 <input type="text" name="id" value="<?=$task['id']?>" hidden>
 				<button class="edit-btn">Update</button>

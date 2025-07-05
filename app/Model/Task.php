@@ -52,6 +52,12 @@
         $stmt->execute($data);
     }
 
+    function update_task_employee($conn, $data){
+        $sql = "UPDATE tasks SET status=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($data);
+    }
+
     function delete_task($conn, $id){
         $sql = "DELETE from tasks WHERE id=?";
         $stmt = $conn->prepare($sql);

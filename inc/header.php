@@ -1,5 +1,5 @@
 <header class="header">
-	<h2 class="u-name">Task <b>Pro</b>
+	<h2 class="u-name">Done<b>desk.</b>
 		<label for="checkbox">
 			<i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
 		</label>
@@ -9,11 +9,11 @@
 		<span id="notificationNum"></span>
 	</span>
 </header>
-<!-- <div class="notification-bar" id="notificationBar">
+<div class="notification-bar" id="notificationBar">
 	<ul id="notifications">
 	
 	</ul>
-</div> -->
+</div>
 <script type="text/javascript">
 	var openNotification = false;
 

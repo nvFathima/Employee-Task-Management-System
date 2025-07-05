@@ -44,9 +44,13 @@
 						<?php } ?>
 						<td><?=$task['due_date'] ?></td>
 						<td><?=$task['status'] ?></td>
-						<td >
-							<a href="edit_task_employee.php?id=<?=$task['id']?>" class="edit-btn">Update Status</a>
-						</td>
+						<?php if ($task['status'] == "completed"){?>
+							<td > NA </td>
+						<?php }else{ ?>
+							<td >
+								<a href="edit_task_employee.php?id=<?=$task['id']?>" class="edit-btn">Update Status</a>
+							</td>
+						<?php } ?>
 					</tr>
 					<?php } ?>
 				</table>

@@ -24,8 +24,46 @@
 	cursor: pointer;
 	color: #fff;
 }
-.header i:hover {
+/* .header i:hover {
 	color: #127b8e;
+} */
+.header .notification {
+	position: relative;
+	cursor: pointer;
+}
+.header .notification span{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	background: #C80000;
+	padding: 1px;
+	border-radius: 50%;
+}
+.header .notification:hover i{
+	color: #127b8e;
+}
+.notification-bar {
+	display: none;
+	width: 90%;
+	max-width: 300px;
+	position: absolute;
+	right: 0;
+	background: #eee;
+	padding: 5px;
+	border: 1px solid #262931;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.notification-bar ul li{
+	list-style: none;
+	margin-top: 10px;
+}
+.notification-bar ul li a{
+	text-decoration: none;
+	color: #000;
+}
+
+.notification-bar ul li:nth-child(even){
+	background: #fff;
 }
 .user-p {
 	text-align: center;
