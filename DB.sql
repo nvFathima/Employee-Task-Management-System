@@ -13,6 +13,7 @@ CREATE TABLE tasks (
     title VARCHAR(100) NOT NULL,
     description TEXT,
     assigned_to INT,
+    due_date DATE,
     status ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (assigned_to) REFERENCES users(id)

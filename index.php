@@ -16,7 +16,15 @@
 	<div class="body">
 		<?php include "inc/nav.php" ?>
 		<section class="section-1">
-	
+		<?php if ($_SESSION['role'] == "admin") { ?>
+				<div class="dashboard">
+					Hello Admin...
+				</div>
+			<?php }else{ ?>
+				<div class="dashboard">
+					Hello Mate...
+				</div>
+			<?php } ?>
 		</section>
 	</div>
 

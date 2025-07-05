@@ -11,7 +11,6 @@
 <head>
     <title>Manage Users</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/confirm_modal.css">
 </head>
@@ -52,8 +51,8 @@
 				<span onclick="document.getElementById('delete_modal').style.display='none'" class="close" title="Close Modal">&times;</span>
 				<form class="modal-content" method = "POST" action="delete_user.php">
 					<div class="modal-container">
-					<h1>Delete User</h1>
-					<p>Are you sure you want to remove this user?</p>
+					<h1>Delete User</h1><br>
+					<p>Are you sure you want to remove this user?</p><br><br> 
 					<input type="hidden" name="id" id="modal_user_id" value="">
 					<div class="clearfix">
 						<button type="button" class="btn cancelbtn" onclick="document.getElementById('delete_modal').style.display='none'">Cancel</button>
@@ -68,29 +67,29 @@
 		</section>
 	</div>
 
-<script type="text/javascript">
-	function openDeleteModal(userId) {
-		document.getElementById('modal_user_id').value = userId;
-		// Show the modal
-		document.getElementById('delete_modal').style.display = 'block';
-	}
-
-	// Close modal when clicking outside of it
-	window.onclick = function(event) {
-		const modal = document.getElementById('delete_modal');
-		if (event.target === modal) {
-			modal.style.display = 'none';
+	<script type="text/javascript">
+		function openDeleteModal(userId) {
+			document.getElementById('modal_user_id').value = userId;
+			// Show the modal
+			document.getElementById('delete_modal').style.display = 'block';
 		}
-	}
-	// Close modal with Escape key
-	document.addEventListener('keydown', function(event) {
-		if (event.key === 'Escape') {
-			document.getElementById('delete_modal').style.display = 'none';
+
+		// Close modal when clicking outside of it
+		window.onclick = function(event) {
+			const modal = document.getElementById('delete_modal');
+			if (event.target === modal) {
+				modal.style.display = 'none';
+			}
 		}
-	});
+		// Close modal with Escape key
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'Escape') {
+				document.getElementById('delete_modal').style.display = 'none';
+			}
+		});
 
 
-</script>
+	</script>
 </body>
 </html>
 

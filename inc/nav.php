@@ -13,26 +13,26 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     ?>
     <!--Employee Nav Bar-->
     <ul>
-        <li>
-            <a href="#">
+        <li class="<?= ($currentPage == 'index.php') ? 'active' : '' ?>">
+            <a href='index.php'>
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="<?= ($currentPage == 'my_task.php') ? 'active' : '' ?>">
+            <a href="my_task.php">
                 <i class="fa fa-tasks" aria-hidden="true"></i>
                 <span>My Task</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="<?= ($currentPage == 'profile.php') ? 'active' : '' ?>">
+            <a href="profile.php">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>Profile</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="<?= ($currentPage == 'notifications.php') ? 'active' : '' ?>">
+            <a href="notifications.php">
                 <i class="fa fa-bell" aria-hidden="true"></i>
                 <span>Notifications</span>
             </a>
@@ -46,9 +46,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     </ul>
     <?php }else{ ?>
     <!--Admin Nav Bar-->
-    <ul id="navList">
-        <li class="<?= ($currentPage == 'admin_dashboard.php') ? 'active' : '' ?>">
-            <a href="admin_dashboard.php">
+    <ul>
+        <li class="<?= ($currentPage == 'index.php') ? 'active' : '' ?>">
+            <a href="index.php">
                 <i class="fa fa-tachometer" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>

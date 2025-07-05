@@ -13,16 +13,14 @@ if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['assi
 	}
 
 	$title = validate_input($_POST['title']);
-	$description = validate_input($_POST['description']);
+	$description = isset($_POST['description']) && trim($_POST['description']) !== '' 
+                            ? validate_input($_POST['description']) 
+                            : 'No description provided';
 	$assigned_to = validate_input($_POST['assigned_to']);
 	$due_date = validate_input($_POST['due_date']);
 
 	if (empty($title)) {
 		$em = "Title is required";
-	    header("Location: ../create_tasks.php?error=$em");
-	    exit();
-	}else if (empty($description)) {
-		$em = "Description is required";
 	    header("Location: ../create_tasks.php?error=$em");
 	    exit();
 	}else if ($assigned_to == 0) {

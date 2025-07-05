@@ -25,11 +25,6 @@
                 <?php echo stripcslashes($_GET['success']); ?>
             </div>
         <?php }?>
-        <?php 
-            // $pass = "123";
-            // $pass = password_hash($pass, PASSWORD_ARGON2ID);
-            // echo $pass;
-        ?>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">User name</label>
             <input type="text" class="form-control" name = "user_name">

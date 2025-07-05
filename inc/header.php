@@ -9,11 +9,11 @@
 		<span id="notificationNum"></span>
 	</span>
 </header>
-<div class="notification-bar" id="notificationBar">
+<!-- <div class="notification-bar" id="notificationBar">
 	<ul id="notifications">
 	
 	</ul>
-</div>
+</div> -->
 <script type="text/javascript">
 	var openNotification = false;
 
