@@ -1,5 +1,5 @@
-# Use official PHP image with Apache
-FROM php:8.1-apache
+# Use official PHP-Apache base image
+FROM php:7.4-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -9,14 +9,11 @@ RUN apt-get update && apt-get install -y \
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql
 
-# Enable Apache rewrite module
-RUN a2enmod rewrite
-
-# Copy your application files
+# Copy all your PHP files to the container's web root
 COPY . /var/www/html/
 
-# Set proper permissions
-RUN chown -R www-data:www-data /var/www/html/
+# Give write permission (optional if needed)
+RUN chmod -R 755 /var/www/html
 
 # Expose port 80
 EXPOSE 80
