@@ -1,8 +1,8 @@
 <?php  
 
-$sName = "localhost";
+$sName = "db";
 $uName = "root";
-$pass  = "";
+$pass  = "root";
 $db_name = "task_management";
 
 try {

@@ -17,7 +17,8 @@ if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['assi
                             ? validate_input($_POST['description']) 
                             : 'No description provided';
 	$assigned_to = validate_input($_POST['assigned_to']);
-	$due_date = validate_input($_POST['due_date']);
+	// $due_date = validate_input($_POST['due_date']);
+	$due_date = !empty($_POST['due_date']) ? $_POST['due_date'] : null;
 
 	if (empty($title)) {
 		$em = "Title is required";
