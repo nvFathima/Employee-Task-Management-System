@@ -12,7 +12,10 @@
 <body class="login-body">
 
     <form method = "POST" action="app/login.php" class = "shadow p-4">
-        <h3 class = "display-5">Login</h3>
+        <div class="login-form-header">
+            <h3>Task Management System</h3>
+            <small style="opacity: 0.8;">Please sign in to continue</small>
+        </div>
 
         <?php if(isset($_GET['error'])){  ?>
             <div class="alert alert-danger" role="alert">
@@ -26,12 +29,12 @@
             </div>
         <?php }?>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">User name</label>
+            <label for="user_name" class="form-label">User name</label>
             <input type="text" class="form-control" name = "user_name">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
         </div>
         
         <button type="submit" class="btn btn-primary">Login</button>
