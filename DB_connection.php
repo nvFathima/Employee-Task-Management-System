@@ -1,6 +1,6 @@
 <?php  
 
-$sName = " sql12.freesqldatabase.com";
+$sName = "sql12.freesqldatabase.com";
 $uName = "sql12790381";
 $pass  = "fAtLlXpcTS";
 $db_name = "sql12790381";
