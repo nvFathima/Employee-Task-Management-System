@@ -1,9 +1,9 @@
 <?php  
 
-$sName = "dpg-d1rsd96uk2gs73b2j7ug-a";
-$uName = "task_management_z0z2_user";
-$pass  = "DP5WvJQwiiFD9XhklxoH8l7TCaixCx82";
-$db_name = "task_management_z0z2";
+$sName = " sql12.freesqldatabase.com";
+$uName = "sql12790381";
+$pass  = "fAtLlXpcTS";
+$db_name = "sql12790381";
 
 try {
 	$conn = new PDO("mysql:host=$sName;dbname=$db_name", $uName, $pass);
