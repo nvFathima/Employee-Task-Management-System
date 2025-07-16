@@ -24,9 +24,8 @@
 	cursor: pointer;
 	color: #fff;
 }
-/* .header i:hover {
-	color: #127b8e;
-} */
+
+
 .header .notification {
 	position: relative;
 	cursor: pointer;
@@ -61,10 +60,14 @@
 	text-decoration: none;
 	color: #000;
 }
-
 .notification-bar ul li:nth-child(even){
 	background: #fff;
 }
+.open-notification {
+	display: block;
+}
+
+
 .user-p {
 	text-align: center;
 	padding-left: 10px;
@@ -85,6 +88,8 @@
 	min-height: 100vh;
 	transition: 500ms width;
 }
+
+
 .body {
 	display: flex;
 }
@@ -125,6 +130,8 @@
 	padding-right: 10px;
 	font-size: 23px;
 }
+
+
 #navbtn {
 	display: inline-block;
 	margin-left: 70px;
@@ -143,6 +150,8 @@
 #checkbox:checked ~ .body .side-bar a span{
 	display: none;
 }
+
+
 .login-body {
 	display: flex;
 	justify-content: center;
@@ -153,6 +162,8 @@
 	max-width: 420px;
 	width: 90%;
 }
+
+
 .section-1 .title{
 	margin-bottom: 10px;
 	font-size: 24px;
@@ -180,6 +191,55 @@
 .section-1 .title a:hover{
 	opacity: .6;
 }
+.section-1 .title select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: #3674B5;
+	color: #fff;
+	border: none;
+	padding: 10px 30px 10px 15px; 
+	font-size: 17px;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+	margin-right: 10px; 
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	transition: opacity 1s;
+	
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 16px;
+}
+.section-1 .title select:hover {
+	opacity: .6;
+}
+.section-1 .title select:focus {
+	opacity: .8;
+}
+.section-1 .title select option {
+	background: #fafafa;
+	color: #37474f;
+	padding: 14px 20px 14px 45px;
+	border-bottom: 1px solid #e0e0e0;
+	font-weight: 500;
+	position: relative;
+}
+.section-1 .title select option:before {
+	content: '●';
+	position: absolute;
+	left: 20px;
+	color: #3674B5;
+	font-size: 12px;
+}
+.section-1 .title select option:hover {
+	background: #f0f7ff;
+	border-left: 3px solid #3674B5;
+	padding-left: 42px;
+}
+
+
 .main-table, .main-table tr, .main-table th, .main-table td {
 	border: 1px solid #aaa;
 	border-collapse: collapse;
@@ -252,6 +312,8 @@
 .edit-btn:hover{
 	opacity: .6;
 }
+
+
 .form-1 {
 	background: #ffe transparent;
 	padding: 30px 25px;
@@ -320,10 +382,11 @@
 }
 .dashboard {
 	display: flex;
-	max-width: 650px;
-	width: 95%;
+	max-width: 750px;
+	width: 100%;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	margin-left: 70px;
 }
 .dashboard-item {
     text-align: center;

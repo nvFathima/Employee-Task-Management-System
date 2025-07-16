@@ -47,11 +47,11 @@
 				<div class="input-holder">
 					<label>Assigned to</label>
 					<select name="assigned_to" class="input-1">
-						<option value="0">Select employee</option>
+						<option value="" disabled selected>Select employee</option>
 						<?php if ($users !=0) { 
 							foreach ($users as $user) {
 						?>
-                  <option value="<?=$user['id']?>"><?=$user['full_name']?></option>
+                  		<option value="<?=$user['id']?>"><?=$user['full_name']?></option>
 						<?php } } ?>
 					</select><br>
 				</div>

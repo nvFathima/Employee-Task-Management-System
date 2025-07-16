@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['role']) && isset($_SESSION['id'])){ 
-        if (isset($_POST['status'])&& $_SESSION['role'] == 'employee'){
+        if (isset($_POST['field'])&& $_SESSION['role'] == 'employee'){
             include 'Model/Users.php';
             include 'Model/Task.php';
             include 'Model/Notification.php';
@@ -13,24 +13,23 @@
                 return $data;
             }
 
-            $status = validate_input($_POST['status']);
-            $id = validate_input($_POST['id']);
-            $title = validate_input($_POST['title']);
+            $field = validate_input($_POST['field']);
+            $message = validate_input($_POST['message']? $_POST['message']: "No Additional Message!");
             
-            $data = array($status, $id);
-            update_task_employee($conn, $data);
-
+            $data = array($field, $message);
             $admin = get_admin($conn, 'admin');
-            $notif_data = array(" Status of '$title' has been updated. Please check.", $admin['id'], 'Task Updated', date("Y-m-d"));
+            $user = get_user_by_id($conn, $_SESSION['id']);
+            $username = $user['username'];
+            $notif_data = array("$field edit request: $message; from $username", $admin['id'], 'Profile Edit Request', date("Y-m-d"));
             insert_notification($conn, $notif_data);
 
-            $em = "Task updated successfully";
-            header("Location: ../edit_task_employee.php?success=$em&id=$id");
+            $em = "Request sent successfully";
+            header("Location: ../edit_profile.php?success=$em&id=$id");
             exit();
 
         }else{
             $em = "unknown error occurred";
-            header("Location: ../edit_task_employee.php?error=$em&id=$id");
+            header("Location: ../edit_profile.php?error=$em&id=$id");
             exit();
         }
     }else{

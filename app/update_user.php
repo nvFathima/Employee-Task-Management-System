@@ -3,6 +3,7 @@
     if(isset($_SESSION['role']) && isset($_SESSION['id'])){ 
         if (isset($_POST['user_name'])&& isset($_POST['full_name'])&& $_SESSION['role'] == 'admin'){
             include 'Model/Users.php';
+            include 'Model/Notification.php';
             include '../DB_connection.php';
             function validate_input($data) {
                 $data = trim($data);
@@ -61,16 +62,20 @@
                 header("Location: ../edit_user.php?error=$em&id=$id");
                 exit();
             }
-
+            $notif_data = [];
             if ($update_password) {
                 // Update with new password
                 $hashed_password = password_hash($new_password, PASSWORD_ARGON2ID);
                 $data = array($full_name, $user_name, $hashed_password, "employee", $id, "employee");
                 update_user($conn, $data);
+                $notif_data = array("Password has been changed.", $id, 'Profile Updation', date("Y-m-d"));
             } else {
                 // Update without changing password
                 update_user_without_password($conn, $full_name, $user_name, $id);
+                $notif_data = array("Profile has been updated.", $id, 'Profile Updation', date("Y-m-d"));
             }
+
+            insert_notification($conn, $notif_data);
 
             $em = "User updated successfully";
             header("Location: ../edit_user.php?success=$em&id=$id");

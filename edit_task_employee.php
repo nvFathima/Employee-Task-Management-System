@@ -47,7 +47,7 @@
                 <?php } ?>
 
 				<div class="input-holder">
-					<p><span style="font-weight:bold;">Title: </span><?=$task['title']?><p>
+					<p><span style="font-weight:bold;">Title: </span><?=$task['title']?></p>
 				</div>
 				<div class="input-holder">
 					<label>Description: </label>
@@ -62,6 +62,7 @@
 					</select><br>
 				</div>
                 <input type="text" name="id" value="<?=$task['id']?>" hidden>
+				<input type="text" name="title" value="<?=$task['title']?>" hidden>
 				<button class="edit-btn">Update</button>
 			</form>	
 		</section>

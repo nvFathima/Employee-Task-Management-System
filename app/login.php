@@ -56,13 +56,17 @@
                     else{
                         $em = "incorrect username or password";
                         header("Location: ../login.php?error=$em");
-                        exit();            
+                        exit();
                     }
                 }else{
                     $em = "incorrect username or password";
                     header("Location: ../login.php?error=$em");
                     exit();            
                 }
+            }else {
+                $em = "incorrect username or password";
+                header("Location: ../login.php?error=$em");
+                exit();
             }
         }
 

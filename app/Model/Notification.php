@@ -20,7 +20,7 @@
     }
 
     function insert_notification($conn, $data){
-        $sql = "INSERT INTO notifications (message, recipient, type) VALUES(?,?,?)";
+        $sql = "INSERT INTO notifications (message, recipient, type, date) VALUES(?,?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute($data);
     }

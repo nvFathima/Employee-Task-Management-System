@@ -3,7 +3,27 @@
 	if(isset($_SESSION['role']) && isset($_SESSION['id'])){ 
 		include "DB_connection.php";
 		include "app/Model/Task.php";
-		$tasks = get_all_tasks($conn);
+
+		$text = "All Task";
+		if (isset($_GET['due_date']) &&  $_GET['due_date'] == "Due Today") {
+			$text = "Due Today";
+			$tasks = get_all_tasks_due_today($conn);
+			$num_task = count_tasks_due_today($conn);
+
+		}else if (isset($_GET['due_date']) &&  $_GET['due_date'] == "Overdue") {
+			$text = "Overdue";
+			$tasks = get_all_tasks_overdue($conn);
+			$num_task = count_tasks_overdue($conn);
+
+		}else if (isset($_GET['due_date']) &&  $_GET['due_date'] == "No Deadline") {
+			$text = "No Deadline";
+			$tasks = get_all_tasks_NoDeadline($conn);
+			$num_task = count_tasks_NoDeadline($conn);
+
+		}else{
+			$tasks = get_all_tasks($conn);
+			$num_task = count_tasks($conn);
+		}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +40,16 @@
 	<div class="body">
 		<?php include "inc/nav.php" ?>
 		<section class="section-1">
-            <h4 class="title">All Tasks    <a href="create_tasks.php">Create Task</a></h4>
+            <h4 class="title">All Tasks   (<?=$num_task ?>) 
+				<select onchange="location = this.value;">
+					<option value="tasks.php" <?= !isset($_GET['due_date']) ? 'selected' : '' ?>>All Tasks</option>
+					<option value="tasks.php?due_date=Due Today" <?= (isset($_GET['due_date']) && $_GET['due_date'] == "Due Today") ? 'selected' : '' ?>>Due Today</option>
+					<option value="tasks.php?due_date=Overdue" <?= (isset($_GET['due_date']) && $_GET['due_date'] == "Overdue") ? 'selected' : '' ?>>Overdue</option>
+					<option value="tasks.php?due_date=No Deadline" <?= (isset($_GET['due_date']) && $_GET['due_date'] == "No Deadline") ? 'selected' : '' ?>>No Deadline</option>
+				</select>
+
+				<a href="create_tasks.php">Create Task</a>
+			</h4>
 			<?php if($tasks != 0){ ?>
 
 				<table class="main-table">

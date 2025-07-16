@@ -54,9 +54,43 @@
         }
     }
 
+    function get_admin($conn, $role){
+        $sql = "SELECT * FROM users WHERE role=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$role]);
+        
+        if($stmt->rowCount() == 1){
+            $user = $stmt->fetch();
+            return $user;
+        }else {
+            return 0;
+        }
+    }
+
+    function get_userid_by_task($conn, $id){
+        $sql = "SELECT u.id FROM users u JOIN tasks t ON u.id = t.assigned_to WHERE t.id =?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        
+        if($stmt->rowCount() >= 1){
+            $user = $stmt->fetch();
+            return $user['id'];
+        }else {
+            return 0;
+        }
+    }
+
     function delete_user($conn, $id){
         $sql = "DELETE from users WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
+    }
+
+    function count_users($conn){
+        $sql = "SELECT id FROM users WHERE role='employee'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([]);
+
+        return $stmt->rowCount();
     }
 ?>
