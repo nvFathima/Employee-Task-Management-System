@@ -23,10 +23,12 @@
 	<title>Edit User</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_responsive.css">
 
 </head>
 <body>
 	<input type="checkbox" id="checkbox">
+    <div class="mobile-overlay"></div>
 	<?php include "inc/header.php" ?>
 	<div class="body">
 		<?php include "inc/nav.php" ?>

@@ -33,6 +33,7 @@
 </head>
 <body>
 	<input type="checkbox" id="checkbox">
+	<div class="mobile-overlay"></div>
 	<?php include "inc/header.php" ?>
 	<div class="body">
 		<?php include "inc/nav.php" ?>
