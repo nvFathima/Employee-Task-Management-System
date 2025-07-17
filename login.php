@@ -13,7 +13,7 @@
 
     <form method = "POST" action="app/login.php" class = "shadow p-4">
         <div class="login-form-header">
-            <h3>Donedesk.</h3>
+            <h3 class="u-name">Done<b>desk.</b></h3>
             <small style="opacity: 0.8;">Please sign in to continue</small>
         </div>
 
